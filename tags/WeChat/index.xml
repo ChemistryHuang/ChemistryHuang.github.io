@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WeChat on kmistry&#39;s blog</title>
+    <link>https://chemistryhuang.github.io/tags/WeChat/</link>
+    <description>Recent content in WeChat on kmistry&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 14 Jan 2020 17:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://chemistryhuang.github.io/tags/WeChat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ubuntu 下安装WeChat、TIM软件</title>
+      <link>https://chemistryhuang.github.io/posts/ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85WeChatTIM%E8%BD%AF%E4%BB%B6/</link>
+      <pubDate>Tue, 14 Jan 2020 17:00:00 +0800</pubDate>
+      
+      <guid>https://chemistryhuang.github.io/posts/ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85WeChatTIM%E8%BD%AF%E4%BB%B6/</guid>
+      <description>步骤一：添加deepin的源 1、编辑/etc/apt/sources.list deb https://mirrors.aliyun.com/deepin/ lion main contrib non-free deb-src https://mirrors.aliyun.com/deepin/ lion main contrib non-free 2、更新软件源 1 2 3 sudo apt update 注意:不要使用 sudo apt upgrade ３、添加mirror以后使用update遇到错误 The following</description>
+    </item>
+    
+  </channel>
+</rss>

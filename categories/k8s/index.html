@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>k8s | kmistry&#39;s blog</title>
+    <meta property="og:title" content="k8s - kmistry&#39;s blog">
+    <meta property="og:type" content="article">
+        
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="description" content="k8s">
+        
+    <meta name="author" content="kmistry">
+    <meta property="og:url" content="https://chemistryhuang.github.io/categories/k8s/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <link rel="alternate" type="application/rss+xml+xml" href="https://chemistryhuang.github.io/categories/k8s/index.xml" title="kmistry's blog" />
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://chemistryhuang.github.io/">
+                        kmistry&#39;s blog
+                    </a>
+                
+                <p class="description">专注于移动互联网、项目管理、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://chemistryhuang.github.io/">首页</a>
+                    
+                    <a  href="https://chemistryhuang.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://chemistryhuang.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <h3 class="archive-title">
+        分类
+        <span class="keyword">k8s</span>
+        中的文章
+    </h3>
+    
+
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://chemistryhuang.github.io/posts/Minikube-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">minikube 环境搭建</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年3月18日
+        </date>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://chemistryhuang.github.io/categories/k8s'>k8s</a>
+            
+        </div>
+        
+        <div class="post-content">
+            step1、安装kubectl 1 2 3 4 5 sudo apt-get update &amp;&amp; sudo apt-get install -y apt-transport-https curl -s https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | sudo apt-key add - echo &#34;deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main&#34; | sudo tee -a /etc/apt/sources.list.d/kubernetes.list sudo apt-get update sudo apt-get install -y kubectl 测试是否安装成功 1 kubectl version --client step2、下载最新minikube 1 2 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \ &amp;&amp; chmod +x minikube 安装 1 2……
+            <p class="readmore"><a href="https://chemistryhuang.github.io/posts/Minikube-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://chemistryhuang.github.io/posts/ubuntu-%E6%90%AD%E5%BB%BAk8s/">ubuntu 搭建k8s</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年3月17日
+        </date>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://chemistryhuang.github.io/categories/k8s'>k8s</a>
+            
+        </div>
+        
+        <div class="post-content">
+            前言 简单搭建的方法 step1、准备两个虚拟机，并进行相应的设置 1.1、设置主机名 ubuntu 18.04不能直接修改/etc/hostname中主机名称,重启后又恢复到安装时设置的主机名称.正确的修改步骤如下: 1……
+            <p class="readmore"><a href="https://chemistryhuang.github.io/posts/ubuntu-%E6%90%AD%E5%BB%BAk8s/">阅读全文</a></p>
+        </div>
+    </article>
+    
+
+    
+
+
+
+
+
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://chemistryhuang.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://chemistryhuang.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E6%90%AD%E5%BB%BA/" title="Centos下Oracle-11g-ee数据库搭建">Centos下Oracle-11g-ee数据库搭建</a>
+    </li>
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/ubuntu-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%84%9A%E6%9C%AC/" title="ubuntu 软件开发环境搭建脚本">ubuntu 软件开发环境搭建脚本</a>
+    </li>
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">数据结构</a>
+    </li>
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/Minikube-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" title="minikube 环境搭建">minikube 环境搭建</a>
+    </li>
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/ubuntu-%E6%90%AD%E5%BB%BAk8s/" title="ubuntu 搭建k8s">ubuntu 搭建k8s</a>
+    </li>
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/Protobuf%E8%AF%AD%E6%B3%95/" title="Protobuf简单使用语法">Protobuf简单使用语法</a>
+    </li>
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B_2/" title="docker使用教程（二）">docker使用教程（二）</a>
+    </li>
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B_1/" title="docker使用教程（一）">docker使用教程（一）</a>
+    </li>
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/docker%E6%90%AD%E5%BB%BA%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="docker搭建教程">docker搭建教程</a>
+    </li>
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/rsync%E5%91%BD%E4%BB%A4%E6%AF%94%E5%AF%B9%E6%96%87%E4%BB%B6%E5%8F%8A%E5%A2%9E%E9%87%8F%E5%90%8C%E6%AD%A5/" title="rsync命令比对文件及增量同步">rsync命令比对文件及增量同步</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://chemistryhuang.github.io/categories/algorithm/">algorithm (1)</a></li>
+    
+    <li><a href="https://chemistryhuang.github.io/categories/data-structure/">data structure (1)</a></li>
+    
+    <li><a href="https://chemistryhuang.github.io/categories/docker/">docker (3)</a></li>
+    
+    <li><a href="https://chemistryhuang.github.io/categories/gPRC/">gPRC (1)</a></li>
+    
+    <li><a href="https://chemistryhuang.github.io/categories/k8s/">k8s (2)</a></li>
+    
+    <li><a href="https://chemistryhuang.github.io/categories/linux/">linux (3)</a></li>
+    
+    <li><a href="https://chemistryhuang.github.io/categories/ubuntu/">ubuntu (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://chemistryhuang.github.io/tags/C/C&#43;&#43;/">C/C&#43;&#43;</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/Protobuf/">Protobuf</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/TIM/">TIM</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/WeChat/">WeChat</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/database/">database</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/docker/">docker</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/flood-fill/">flood fill</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/go/">go</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/k8s/">k8s</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/kata/">kata</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/minikube/">minikube</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/oracle/">oracle</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/rsync/">rsync</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/shell/">shell</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/tutorials/">tutorials</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/ubuntu/">ubuntu</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">环境搭建</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liwenzhou.com/" title="李文周的博客">李文周的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://cuijiahua.com/" title="Jack Cui的博客">Jack Cui的博客</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://chemistryhuang.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="https://chemistryhuang.github.io/">kmistry&#39;s blog By kmistry</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+</body>
+
+</html>

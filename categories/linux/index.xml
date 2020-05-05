@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on kmistry&#39;s blog</title>
+    <link>https://chemistryhuang.github.io/categories/linux/</link>
+    <description>Recent content in linux on kmistry&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 15 Jan 2020 11:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://chemistryhuang.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Centos下Oracle-11g-ee数据库搭建</title>
+      <link>https://chemistryhuang.github.io/posts/oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Mon, 13 Jan 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://chemistryhuang.github.io/posts/oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E6%90%AD%E5%BB%BA/</guid>
+      <description>一、相应环境设置 step1：安装相应依赖软件 1 yum -y install oracle-rdbms-server-11gR2-preinstall passwd openssl wget net-tools gettext zip step2：设置文件和相应权限信息 1 2 3 4 5 6 mkdir -p -m 755 /u01/app/dpdump &amp;amp;&amp;amp; \ mkdir -p -m 755 /u01/app/oradata &amp;amp;&amp;amp; \ mkdir -p -m 755 /u01/app/oraInventory &amp;amp;&amp;amp; \ mkdir -p -m 755 /u01/app/oracle &amp;amp;&amp;amp; \ mkdir -p -m 755 /u01/app/oracle/product/11.2.0/dbhome_1 &amp;amp;&amp;amp; \ chown -R oracle:oinstall /u01 step3</description>
+    </item>
+    
+    <item>
+      <title>rsync命令比对文件及增量同步</title>
+      <link>https://chemistryhuang.github.io/posts/rsync%E5%91%BD%E4%BB%A4%E6%AF%94%E5%AF%B9%E6%96%87%E4%BB%B6%E5%8F%8A%E5%A2%9E%E9%87%8F%E5%90%8C%E6%AD%A5/</link>
+      <pubDate>Wed, 15 Jan 2020 11:00:00 +0800</pubDate>
+      
+      <guid>https://chemistryhuang.github.io/posts/rsync%E5%91%BD%E4%BB%A4%E6%AF%94%E5%AF%B9%E6%96%87%E4%BB%B6%E5%8F%8A%E5%A2%9E%E9%87%8F%E5%90%8C%E6%AD%A5/</guid>
+      <description>rsync介绍 A fast,versatile,remote (and local) file-copying tool. rsync基于ssh协议实现高效率远程或本地文件复制，传输速度比scp快。复制文件时会比对本地文件与远程主机的文件，仅复制有差异的文件。 常用选项： -q,--quiet：sup</description>
+    </item>
+    
+    <item>
+      <title>ubuntu 下安装WeChat、TIM软件</title>
+      <link>https://chemistryhuang.github.io/posts/ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85WeChatTIM%E8%BD%AF%E4%BB%B6/</link>
+      <pubDate>Tue, 14 Jan 2020 17:00:00 +0800</pubDate>
+      
+      <guid>https://chemistryhuang.github.io/posts/ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85WeChatTIM%E8%BD%AF%E4%BB%B6/</guid>
+      <description>步骤一：添加deepin的源 1、编辑/etc/apt/sources.list deb https://mirrors.aliyun.com/deepin/ lion main contrib non-free deb-src https://mirrors.aliyun.com/deepin/ lion main contrib non-free 2、更新软件源 1 2 3 sudo apt update 注意:不要使用 sudo apt upgrade ３、添加mirror以后使用update遇到错误 The following</description>
+    </item>
+    
+  </channel>
+</rss>

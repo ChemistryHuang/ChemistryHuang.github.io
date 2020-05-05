@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rsync on kmistry&#39;s blog</title>
+    <link>https://chemistryhuang.github.io/tags/rsync/</link>
+    <description>Recent content in rsync on kmistry&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 15 Jan 2020 11:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://chemistryhuang.github.io/tags/rsync/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>rsync命令比对文件及增量同步</title>
+      <link>https://chemistryhuang.github.io/posts/rsync%E5%91%BD%E4%BB%A4%E6%AF%94%E5%AF%B9%E6%96%87%E4%BB%B6%E5%8F%8A%E5%A2%9E%E9%87%8F%E5%90%8C%E6%AD%A5/</link>
+      <pubDate>Wed, 15 Jan 2020 11:00:00 +0800</pubDate>
+      
+      <guid>https://chemistryhuang.github.io/posts/rsync%E5%91%BD%E4%BB%A4%E6%AF%94%E5%AF%B9%E6%96%87%E4%BB%B6%E5%8F%8A%E5%A2%9E%E9%87%8F%E5%90%8C%E6%AD%A5/</guid>
+      <description>rsync介绍 A fast,versatile,remote (and local) file-copying tool. rsync基于ssh协议实现高效率远程或本地文件复制，传输速度比scp快。复制文件时会比对本地文件与远程主机的文件，仅复制有差异的文件。 常用选项： -q,--quiet：sup</description>
+    </item>
+    
+  </channel>
+</rss>

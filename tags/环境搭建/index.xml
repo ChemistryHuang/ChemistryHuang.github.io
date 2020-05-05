@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>环境搭建 on kmistry&#39;s blog</title>
+    <link>https://chemistryhuang.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
+    <description>Recent content in 环境搭建 on kmistry&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 17 Mar 2020 13:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://chemistryhuang.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ubuntu 搭建k8s</title>
+      <link>https://chemistryhuang.github.io/posts/ubuntu-%E6%90%AD%E5%BB%BAk8s/</link>
+      <pubDate>Tue, 17 Mar 2020 13:00:00 +0800</pubDate>
+      
+      <guid>https://chemistryhuang.github.io/posts/ubuntu-%E6%90%AD%E5%BB%BAk8s/</guid>
+      <description>前言 简单搭建的方法 step1、准备两个虚拟机，并进行相应的设置 1.1、设置主机名 ubuntu 18.04不能直接修改/etc/hostname中主机名称,重启后又恢复到安装时设置的主机名称.正确的修改步骤如下: 1</description>
+    </item>
+    
+  </channel>
+</rss>

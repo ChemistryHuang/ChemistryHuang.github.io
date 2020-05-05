@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>minikube 环境搭建 | kmistry&#39;s blog</title>
+    <meta property="og:title" content="minikube 环境搭建 - kmistry&#39;s blog">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-03-18T13:19:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-03-18T13:19:00&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="description" content="minikube 环境搭建">
+        
+    <meta name="author" content="kmistry">
+    <meta property="og:url" content="https://chemistryhuang.github.io/posts/Minikube-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://chemistryhuang.github.io/">
+                        kmistry&#39;s blog
+                    </a>
+                
+                <p class="description">专注于移动互联网、项目管理、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://chemistryhuang.github.io/">首页</a>
+                    
+                    <a  href="https://chemistryhuang.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://chemistryhuang.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#step1安装kubectl">step1、安装kubectl</a></li>
+    <li><a href="#step2下载最新minikube">step2、下载最新minikube</a></li>
+    <li><a href="#step3启动">step3、启动</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if(leftPos<220){
+                postToc.css({"width":leftPos-10,"margin-left":(0-leftPos)})
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">minikube 环境搭建</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年3月18日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://chemistryhuang.github.io/categories/k8s'>k8s</a></span>
+            
+        </div>
+        
+        <span class="post-word-count">|295 words</span>
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        <div class="post-meta animated slower fadeInUp">
+            <i class="fa fa-clock-o"></i>&nbsp;| 阅读时间大约1分钟
+        </div>
+        
+        
+        <div class="post-content">
+            <h2 id="step1安装kubectl">step1、安装kubectl</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get update <span style="color:#000;font-weight:bold">&amp;&amp;</span> sudo apt-get install -y apt-transport-https
+curl -s https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | sudo apt-key add -
+<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main&#34;</span> | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+</code></pre></td></tr></table>
+</div>
+</div><p>测试是否安装成功</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl version --client
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="step2下载最新minikube">step2、下载最新minikube</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 <span style="color:#d14">\
+</span><span style="color:#d14"></span>  <span style="color:#000;font-weight:bold">&amp;&amp;</span> chmod +x minikube
+</code></pre></td></tr></table>
+</div>
+</div><p>安装</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mkdir -p /usr/local/bin/
+sudo install minikube /usr/local/bin/
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="step3启动">step3、启动</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#998;font-style:italic"># 方法一 使用vm</span>
+sudo apt install virtualbox
+
+minikube start  --image-mirror-country<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;cn&#39;</span> --image-repository<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;registry.cn-hangzhou.aliyuncs.com/google_containers&#39;</span>  --iso-url<span style="color:#000;font-weight:bold">=</span>https://kubernetes.oss-cn-hangzhou.aliyuncs.com/minikube/iso/minikube-v1.9.0.iso     --registry-mirror<span style="color:#000;font-weight:bold">=</span>https://0gjh0eq1.mirror.aliyuncs.com --vm-driver<span style="color:#000;font-weight:bold">=</span>virtualbox
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#998;font-style:italic"># 方法二 使用none，前提已安装docker</span>
+sudo apt install conntrack
+<span style="color:#998;font-style:italic"># 启动none需要root权限</span>
+sudo minikube start  --image-mirror-country<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;cn&#39;</span> --image-repository<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;registry.cn-hangzhou.aliyuncs.com/google_containers&#39;</span> --registry-mirror<span style="color:#000;font-weight:bold">=</span>https://0gjh0eq1.mirror.aliyuncs.com --driver<span style="color:#000;font-weight:bold">=</span>none
+</code></pre></td></tr></table>
+</div>
+</div><p>后续</p>
+<p>1.kubectl 自动补全功能</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl completion bash &gt;&gt; ~/.bashrc 
+<span style="color:#0086b3">source</span> ~/.bashrc
+</code></pre></td></tr></table>
+</div>
+</div><p>2.helm插件安装</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#998;font-style:italic"># 下载helm</span>
+wget https://get.helm.sh/helm-v2.16.5-linux-amd64.tar.gz
+<span style="color:#998;font-style:italic"># 解压</span>
+tar -zxvf helm-v2.16.5-linux-amd64.tar.gz
+<span style="color:#998;font-style:italic"># 移动</span>
+sudo mv linux-amd64/helm /usr/local/bin/helm
+<span style="color:#998;font-style:italic"># 检查是否安装成功</span>
+helm version
+<span style="color:#998;font-style:italic"># 添加helm仓库</span>
+helm repo add gradiant https://gradiant.github.io/charts/
+</code></pre></td></tr></table>
+</div>
+</div><p>3.开启ingress插件</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo minikube addons <span style="color:#0086b3">enable</span> ingress
+</code></pre></td></tr></table>
+</div>
+</div>
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="https://chemistryhuang.github.io/">kmistry</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://chemistryhuang.github.io/posts/Minikube-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">https://chemistryhuang.github.io/posts/Minikube-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+        <br>
+        <div class="social-share"><span>喜欢的话,您可以选择分享在</span>
+            <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+            <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+        </div>
+        <br>
+
+        
+
+<div class="post-archive">
+    <h2>推荐阅读</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/ubuntu-%E6%90%AD%E5%BB%BAk8s/">ubuntu 搭建k8s</a></li>
+        
+        <li><a href="/posts/Protobuf%E8%AF%AD%E6%B3%95/">Protobuf简单使用语法</a></li>
+        
+        <li><a href="/posts/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B_2/">docker使用教程（二）</a></li>
+        
+        <li><a href="/posts/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B_1/">docker使用教程（一）</a></li>
+        
+        <li><a href="/posts/docker%E6%90%AD%E5%BB%BA%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">docker搭建教程</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://chemistryhuang.github.io/tags/k8s'>k8s</a></li>
+                
+                <li><a href='https://chemistryhuang.github.io/tags/minikube'>minikube</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "ChemistryHuang/hugoblogtalks"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://chemistryhuang.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://chemistryhuang.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E6%90%AD%E5%BB%BA/" title="Centos下Oracle-11g-ee数据库搭建">Centos下Oracle-11g-ee数据库搭建</a>
+    </li>
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/ubuntu-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E8%84%9A%E6%9C%AC/" title="ubuntu 软件开发环境搭建脚本">ubuntu 软件开发环境搭建脚本</a>
+    </li>
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构">数据结构</a>
+    </li>
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/Minikube-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" title="minikube 环境搭建">minikube 环境搭建</a>
+    </li>
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/ubuntu-%E6%90%AD%E5%BB%BAk8s/" title="ubuntu 搭建k8s">ubuntu 搭建k8s</a>
+    </li>
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/Protobuf%E8%AF%AD%E6%B3%95/" title="Protobuf简单使用语法">Protobuf简单使用语法</a>
+    </li>
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B_2/" title="docker使用教程（二）">docker使用教程（二）</a>
+    </li>
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B_1/" title="docker使用教程（一）">docker使用教程（一）</a>
+    </li>
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/docker%E6%90%AD%E5%BB%BA%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="docker搭建教程">docker搭建教程</a>
+    </li>
+    
+    <li>
+        <a href="https://chemistryhuang.github.io/posts/rsync%E5%91%BD%E4%BB%A4%E6%AF%94%E5%AF%B9%E6%96%87%E4%BB%B6%E5%8F%8A%E5%A2%9E%E9%87%8F%E5%90%8C%E6%AD%A5/" title="rsync命令比对文件及增量同步">rsync命令比对文件及增量同步</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://chemistryhuang.github.io/categories/algorithm/">algorithm (1)</a></li>
+    
+    <li><a href="https://chemistryhuang.github.io/categories/data-structure/">data structure (1)</a></li>
+    
+    <li><a href="https://chemistryhuang.github.io/categories/docker/">docker (3)</a></li>
+    
+    <li><a href="https://chemistryhuang.github.io/categories/gPRC/">gPRC (1)</a></li>
+    
+    <li><a href="https://chemistryhuang.github.io/categories/k8s/">k8s (2)</a></li>
+    
+    <li><a href="https://chemistryhuang.github.io/categories/linux/">linux (3)</a></li>
+    
+    <li><a href="https://chemistryhuang.github.io/categories/ubuntu/">ubuntu (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://chemistryhuang.github.io/tags/C/C&#43;&#43;/">C/C&#43;&#43;</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/Protobuf/">Protobuf</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/TIM/">TIM</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/WeChat/">WeChat</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/database/">database</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/docker/">docker</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/flood-fill/">flood fill</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/go/">go</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/k8s/">k8s</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/kata/">kata</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/minikube/">minikube</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/oracle/">oracle</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/rsync/">rsync</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/shell/">shell</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/tutorials/">tutorials</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/ubuntu/">ubuntu</a>
+    
+    <a href="https://chemistryhuang.github.io/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">环境搭建</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.flysnow.org/" title="飞雪无情的博客">飞雪无情的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liwenzhou.com/" title="李文周的博客">李文周的博客</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://cuijiahua.com/" title="Jack Cui的博客">Jack Cui的博客</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://chemistryhuang.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="https://chemistryhuang.github.io/">kmistry&#39;s blog By kmistry</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+</body>
+
+</html>

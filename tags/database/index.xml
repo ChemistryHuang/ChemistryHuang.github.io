@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>database on kmistry&#39;s blog</title>
+    <link>https://chemistryhuang.github.io/tags/database/</link>
+    <description>Recent content in database on kmistry&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 13 Jan 2020 21:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://chemistryhuang.github.io/tags/database/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Centos下Oracle-11g-ee数据库搭建</title>
+      <link>https://chemistryhuang.github.io/posts/oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Mon, 13 Jan 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://chemistryhuang.github.io/posts/oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E6%90%AD%E5%BB%BA/</guid>
+      <description>一、相应环境设置 step1：安装相应依赖软件 1 yum -y install oracle-rdbms-server-11gR2-preinstall passwd openssl wget net-tools gettext zip step2：设置文件和相应权限信息 1 2 3 4 5 6 mkdir -p -m 755 /u01/app/dpdump &amp;amp;&amp;amp; \ mkdir -p -m 755 /u01/app/oradata &amp;amp;&amp;amp; \ mkdir -p -m 755 /u01/app/oraInventory &amp;amp;&amp;amp; \ mkdir -p -m 755 /u01/app/oracle &amp;amp;&amp;amp; \ mkdir -p -m 755 /u01/app/oracle/product/11.2.0/dbhome_1 &amp;amp;&amp;amp; \ chown -R oracle:oinstall /u01 step3</description>
+    </item>
+    
+  </channel>
+</rss>

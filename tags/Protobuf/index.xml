@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Protobuf on kmistry&#39;s blog</title>
+    <link>https://chemistryhuang.github.io/tags/Protobuf/</link>
+    <description>Recent content in Protobuf on kmistry&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 15 Mar 2020 11:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://chemistryhuang.github.io/tags/Protobuf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Protobuf简单使用语法</title>
+      <link>https://chemistryhuang.github.io/posts/Protobuf%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Sun, 15 Mar 2020 11:00:00 +0800</pubDate>
+      
+      <guid>https://chemistryhuang.github.io/posts/Protobuf%E8%AF%AD%E6%B3%95/</guid>
+      <description>前言：gRPC推荐使用proto3，这里只介绍常用语法,更多高级使用姿势清取道官方文档 Message定义 一个message类型定义描述了一个请求或响应的消息格式，可以包含多种类型字段。 例如定义一个搜索</description>
+    </item>
+    
+  </channel>
+</rss>

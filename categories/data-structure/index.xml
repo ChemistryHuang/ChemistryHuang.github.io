@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>data structure on kmistry&#39;s blog</title>
+    <link>https://chemistryhuang.github.io/categories/data-structure/</link>
+    <description>Recent content in data structure on kmistry&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 04 Apr 2020 11:18:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://chemistryhuang.github.io/categories/data-structure/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>数据结构</title>
+      <link>https://chemistryhuang.github.io/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Sat, 04 Apr 2020 11:18:00 +0800</pubDate>
+      
+      <guid>https://chemistryhuang.github.io/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <description>前言：更多代码，https://github.com/wangzheng0822/algo 栈 基于数组实现的栈,如下： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42</description>
+    </item>
+    
+  </channel>
+</rss>

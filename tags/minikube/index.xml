@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>minikube on kmistry&#39;s blog</title>
+    <link>https://chemistryhuang.github.io/tags/minikube/</link>
+    <description>Recent content in minikube on kmistry&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 18 Mar 2020 13:19:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://chemistryhuang.github.io/tags/minikube/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>minikube 环境搭建</title>
+      <link>https://chemistryhuang.github.io/posts/Minikube-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Wed, 18 Mar 2020 13:19:00 +0800</pubDate>
+      
+      <guid>https://chemistryhuang.github.io/posts/Minikube-%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</guid>
+      <description>step1、安装kubectl 1 2 3 4 5 sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install -y apt-transport-https curl -s https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | sudo apt-key add - echo &amp;#34;deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main&amp;#34; | sudo tee -a /etc/apt/sources.list.d/kubernetes.list sudo apt-get update sudo apt-get install -y kubectl 测试是否安装成功 1 kubectl version --client step2、下载最新minikube 1 2 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \ &amp;amp;&amp;amp; chmod +x minikube 安装 1 2</description>
+    </item>
+    
+  </channel>
+</rss>

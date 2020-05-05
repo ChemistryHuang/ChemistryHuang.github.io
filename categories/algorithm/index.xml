@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>algorithm on kmistry&#39;s blog</title>
+    <link>https://chemistryhuang.github.io/categories/algorithm/</link>
+    <description>Recent content in algorithm on kmistry&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 22 Aug 2019 16:29:05 +0800</lastBuildDate>
+    
+	<atom:link href="https://chemistryhuang.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>漫水填充算法</title>
+      <link>https://chemistryhuang.github.io/posts/%E6%BC%AB%E6%B0%B4%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Thu, 22 Aug 2019 16:29:05 +0800</pubDate>
+      
+      <guid>https://chemistryhuang.github.io/posts/%E6%BC%AB%E6%B0%B4%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95/</guid>
+      <description>一、思路 Flood fill算法接受三个参数：起始节点，目标颜色和替换颜色。算法遍历所有的节点以寻找和起始节点相连的节点（通过一条目标颜色的路径相连），然后 改变他们的颜色为替换颜色。目前有许多flood-fil</description>
+    </item>
+    
+  </channel>
+</rss>
